@@ -1,53 +1,23 @@
-// var os = require("os");
-// var message = "The platform is ";
+var fs = require('fs');
 
-// function main(){
-//    console.log(message + os.platform());
+var obj = { name: "Arman", secon_dname: "Umroyan", age: "15", tumo_student: true }
+// var obj = {
+//     "first_name": "Arman",
+//     "second_name": "Umroyan",
+//     "age": 15,
+//     "tumo_student": true
 // }
-// main();
 
-
-
-// var express = require("express");
-// var app = express();
-
-// app.get("/", function(req, res){
-//    res.send("Hello world");
-// });
-
-// app.listen(3000, function(){
-//    console.log("Example is running on port 3000");
-// });
- 
+var myJSON = JSON.stringify(obj);
 
 
 
 
-// app.get("/", function(req, res){
-//    res.send("<h1>Hello world</h1>");
-// });
-// app.get("/name/:name", function(req, res){
-//    var name = req.params.name;
-//    res.send("<h1>Hello " + name +"</h1>");
-// });
+function main() {
+   
 
+    fs.writeFileSync("obj.json", myJSON);
+    console.log("Areci prca")
+}
 
-
-
-var express = require("express");
-var app = express();
-
-app.get("/google", function(req, res){
-    res.redirect('http://google.com');
- });
- 
- app.get("/google/:search", function(req,res){
-     var name = req.params.search;
-     res.redirect('http://google.com/search?q=' + name)
- });
- app.get("/*", function(req, res){
-       res.send("<h1>404 Error</h1>");
-    });
- app.listen(3000, function(){
-    console.log("Example is running on port 3000");
- });
+main()
